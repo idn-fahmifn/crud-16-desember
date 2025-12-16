@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <div class="form-group mt-2">
         <label for="">Item Name</label>
         <input type="text" name="item_name" class="form-control">
