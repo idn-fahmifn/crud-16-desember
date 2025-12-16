@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -33,6 +34,18 @@ class ItemController extends Controller
             'desc' => $request->input('desc'),
             'slug' => Str::slug($request->input('item_name')).random_int(0000,9999),
         ];
+
+        // kondisi saat ada input file (image)
+
+        if($request->hasFile('image')){
+            $img = $request->file('image'); //file yang diupload dari form.
+            $path = 'public/images/items'; //tempat penyimpanan file yang diupload
+            $ext = $img->getClientOriginalExtension();
+            $name = 'item_'.Carbon::now('Asia/jakarta')->format('dmYhis').'.'.$ext; //output : item_16122025173040.jpg
+            $simpan['image'] = $name;
+        }
+
+        return $simpan;
 
     }
 }
