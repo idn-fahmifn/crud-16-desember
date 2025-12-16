@@ -8,5 +8,9 @@ Route::get('/', function () {
 });
 
 // ROuting untuk barang
-Route::get('items', [ItemController::class, 'index'])->name('item.index');
+Route::get('items', [ItemController::class, 'index'])
+->name('item.index');
+
+Route::get('items/create', [ItemController::class, 'create'])
+->name('item.create');
 
