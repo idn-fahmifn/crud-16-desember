@@ -45,7 +45,7 @@
         </div>
         <div class="card mt-2">
             <div class="card-body">
-
+                @yield('content')
             </div>
         </div>
     </div>
