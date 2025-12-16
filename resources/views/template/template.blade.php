@@ -39,8 +39,13 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
-                <h3>Judul Halaman</h3>
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, numquam?</p>
+                <h5>@yield('title')</h5>
+                <p class="text-muted">@yield('desc')</p>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-body">
+
             </div>
         </div>
     </div>

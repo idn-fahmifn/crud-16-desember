@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('tampilan', 'template.template'); //menampilkan halaman template.
+// ROuting untuk barang
+Route::get('items', [ItemController::class, 'index'])->name('item.index');
+
