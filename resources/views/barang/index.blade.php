@@ -30,7 +30,7 @@
                 @forelse ($data as $item)
                     <tr>
                         <td>{{$item->item_name}}</td>
-                        <td>{{ Str::limit($item->desc, 40, '...') }}</td>
+                        <td>{{ Str::limit($item->desc, 20, '...') }}</td>
                         <td><a href="" class="btn btn-info">detail</a></td>
                     </tr>
                 @empty

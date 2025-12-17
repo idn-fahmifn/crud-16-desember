@@ -17,3 +17,6 @@ Route::get('items/create', [ItemController::class, 'create'])
 Route::post('items', [ItemController::class, 'store'])
 ->name('item.store');
 
+Route::get('items/{param}', [ItemController::class, 'detail'])
+->name('item.detail');
+

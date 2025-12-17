@@ -15,7 +15,7 @@ class ItemController extends Controller
         return view('barang.index', compact('data'));
     }
 
-     public function create()
+    public function create()
     {
         return view('barang.create');
     }
@@ -55,6 +55,11 @@ class ItemController extends Controller
 
         return redirect()->route('item.index')->with('success', 'Item created');
 
+    }
 
+    public function detail($param)
+    {
+        $data = Item::where('slug', $param)->firstOrFail();
+        return view('barang.detail', compact('data'));
     }
 }
