@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -42,10 +43,17 @@ class ItemController extends Controller
             $path = 'public/images/items'; //tempat penyimpanan file yang diupload
             $ext = $img->getClientOriginalExtension();
             $name = 'item_'.Carbon::now('Asia/jakarta')->format('dmYhis').'.'.$ext; //output : item_16122025173040.jpg
-            $simpan['image'] = $name;
+            $simpan['image'] = $name; //nilai yang disimpan ke database
+
+            // simpan file ke folder storage
+            $img->storeAs($path, $name);
         }
 
-        return $simpan;
+        // simpan semua data di request ke database.
+        Item::create($simpan);
+
+        return redirect()->route('item.index')->with('success', 'Item created');
+
 
     }
 }

@@ -10,7 +10,10 @@
 @endsection
 
 @section('content')
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{ route('item.store') }}" method="post" enctype="multipart/form-data">
+    
+    @csrf
+
     <div class="form-group mt-2">
         <label for="">Item Name</label>
         <input type="text" name="item_name" class="form-control">
