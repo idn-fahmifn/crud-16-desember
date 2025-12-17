@@ -62,4 +62,11 @@ class ItemController extends Controller
         $data = Item::where('slug', $param)->firstOrFail();
         return view('barang.detail', compact('data'));
     }
+
+    public function update(Request $request, $param)
+    {
+        $data = Item::where('slug', $param)->first();
+        return $data->id;
+    }
+
 }

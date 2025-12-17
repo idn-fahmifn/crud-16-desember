@@ -20,3 +20,6 @@ Route::post('items', [ItemController::class, 'store'])
 Route::get('items/{param}', [ItemController::class, 'detail'])
 ->name('item.detail');
 
+Route::put('items/{param}', [ItemController::class, 'update'])
+->name('item.update');
+

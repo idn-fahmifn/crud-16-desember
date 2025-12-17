@@ -60,18 +60,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('item.update', $data->slug) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
 
                     <div class="modal-body">
                         <div class="form-group mt-2">
                             <label for="">Item Name</label>
-                            <input type="text" name="item_name" class="form-control">
+                            <input type="text" name="item_name" value="{{ $data->item_name }}" class="form-control">
                         </div>
                         <div class="form-group mt-2">
                             <label for="">Item Stock</label>
-                            <input type="number" name="stock" class="form-control">
+                            <input type="number" name="stock" value="{{ $data->stock }}" class="form-control">
                         </div>
                         <div class="form-group mt-2">
                             <label for="">Image</label>
@@ -79,12 +79,12 @@
                         </div>
                         <div class="form-group mt-2">
                             <label for="">Item Description</label>
-                            <textarea name="desc" class="form-control" id=""></textarea>
+                            <textarea name="desc" class="form-control" id="">{{ $data->desc }}</textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
 
                 </form>
