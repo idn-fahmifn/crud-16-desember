@@ -23,3 +23,6 @@ Route::get('items/{param}', [ItemController::class, 'detail'])
 Route::put('items/{param}', [ItemController::class, 'update'])
 ->name('item.update');
 
+Route::delete('items/{param}', [ItemController::class, 'destroy'])
+->name('item.destroy');
+

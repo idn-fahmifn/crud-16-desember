@@ -40,7 +40,7 @@
         </div>
         <div class="form-group mt-2">
             <label for="">Image</label>
-            <input type="file" name="image" class="form-control">
+            <input type="file" accept="image/*" name="image" class="form-control">
         </div>
         <div class="form-group mt-2">
             <label for="">Item Description</label>

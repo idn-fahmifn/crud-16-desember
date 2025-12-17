@@ -55,11 +55,11 @@
     </div>
 
     <div class="mt-2">
-        <form action="#" method="post">
+        <form action="{{ route('item.destroy', $data->slug) }}" method="post">
             @csrf
             @method('delete')
 
-            <button type="submit" class="btn btn-outline-danger">🗑️</button>
+            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Yakin mau dihapus?')">🗑️</button>
             <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#showModal">
                 🖊️
             </button>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="form-group mt-2">
                             <label for="">Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <input type="file" accept="image/*" name="image" class="form-control">
                         </div>
                         <div class="form-group mt-2">
                             <label for="">Item Description</label>

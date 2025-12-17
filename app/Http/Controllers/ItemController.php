@@ -91,8 +91,7 @@ class ItemController extends Controller
 
             $old_path = 'public/images/items/' . $data->image;
             // Jika gambar lama masih tersedia, Maka hapus : 
-            if($data->image && Storage::exists($old_path))
-            {
+            if ($data->image && Storage::exists($old_path)) {
                 Storage::delete($old_path);
             }
 
@@ -108,8 +107,23 @@ class ItemController extends Controller
 
         // simpan semua data di request ke database.
         $data->update($simpan);
-        return redirect()->route('item.index')->with('success', 'Item has been updated');
+        return redirect()->route('item.detail', $data->slug)->with('success', 'Item has been updated');
 
+    }
+
+    public function destroy($param)
+    {
+        $id = Item::where('slug', $param)->first(); //id yang dipilih.
+        $data = Item::find($id->id);
+        $old_path = 'public/images/items/' . $data->image;
+        // Jika gambar lama masih tersedia, Maka hapus : 
+        if ($data->image && Storage::exists($old_path)) {
+            Storage::delete($old_path);
+        }
+
+        $data->delete();
+
+        return redirect()->route('item.index')->with('success', 'Item has been deleted');
 
     }
 
