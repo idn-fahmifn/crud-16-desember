@@ -10,6 +10,22 @@
 @endsection
 
 @section('content')
+
+    {{-- alert error dari create,blade.php --}}
+    @if ($errors->any())
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Opps!</strong> Error.
+
+            <ol>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ol>
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> {{ session('success') }}.
