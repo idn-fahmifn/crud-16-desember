@@ -26,10 +26,10 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Items</a>
+                        <a class="nav-link" href="{{ route('item.index') }}">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Create Item</a>
+                        <a class="nav-link" href="{{ route('item.create') }}">Create Item</a>
                     </li>
                 </ul>
             </div>

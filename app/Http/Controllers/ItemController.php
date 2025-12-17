@@ -11,7 +11,8 @@ class ItemController extends Controller
 {
     public function index()
     {
-        return view('barang.index');
+        $data = Item::all();
+        return view('barang.index', compact('data'));
     }
 
      public function create()
